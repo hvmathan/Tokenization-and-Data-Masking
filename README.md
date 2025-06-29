@@ -2,7 +2,7 @@
 
 ## The Real-World Problem
 
-In 2017, Equifax suffered one of the worst data breaches in history, exposing the personal data of over 147 million people. The breach included names, Social Security numbers, dates of birth, and addresses. The aftermath? A $700 million penalty, irreparable reputational damage, and shattered customer trust. The root causes? A missed Apache patch, but more critically, a lack of layered, proactive data protection.
+In 2017, Equifax suffered one of the worst data breaches in history, exposing the personal data of over 147 million people. The breach included names, Social Security numbers, dates of birth, and addresses. The aftermath? A $700 million penalty, irreparable reputational damage, and shattered customer trust. The root causes? A missed Apache patch, but more critically, a lack of layered, proactive data protection. Source : https://archive.epic.org/privacy/data-breach/equifax/****
 
 ### What if...?
 
