@@ -1,0 +1,41 @@
+import boto3
+import json
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+def lambda_handler(event, context):
+    logger.info("Event received: %s", json.dumps(event, indent=2))
+
+    # Extract S3 info
+    try:
+        bucket = event['Records'][0]['s3']['bucket']['name']
+        key = event['Records'][0]['s3']['object']['key']
+        logger.info(f"File uploaded to bucket: {bucket}, key: {key}")
+    except Exception as e:
+        logger.error("Failed to extract S3 info: %s", str(e))
+        return {"statusCode": 500, "body": "S3 event not processed"}
+
+    # Simulate PII field detection (replace later with Bedrock logic)
+    detected_pii_fields = ["Name", "Email", "Phone"]
+
+    # Write to metadata S3 path
+    metadata_key = key.replace("raw/", "metadata/").replace(".csv", "_pii_fields.json")
+    s3 = boto3.client('s3')
+    s3.put_object(
+        Bucket=bucket,
+        Key=metadata_key,
+        Body=json.dumps(detected_pii_fields),
+        ContentType="application/json"
+    )
+
+    logger.info(f"PII fields written to s3://{bucket}/{metadata_key}")
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps({
+            "pii_fields": detected_pii_fields,
+            "metadata_file": metadata_key
+        })
+    }
