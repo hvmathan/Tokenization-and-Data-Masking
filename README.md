@@ -81,7 +81,7 @@ This serverless pipeline consists of 3 core Lambda functions:
   - Field-specific masking patterns for names, emails, and phone numbers
 - **Output**: Detokenized/masked CSV in `/detokenized` folder
 
-- ![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/dcfdcba6-530d-4867-b7dd-4d5b32f883fb)
 
 
 ## How the Pipeline Works — End-to-End Flow
