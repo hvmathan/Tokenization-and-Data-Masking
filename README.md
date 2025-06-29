@@ -14,6 +14,10 @@ To build a lightweight, cost-effective, and automated pipeline to tokenize sensi
 
 ## Architecture Overview
 
+![image](https://github.com/user-attachments/assets/f6da56b4-50fb-4210-8ec8-5f17c34e82fd)
+
+
+
 ```
 ┌─────────────────┐    ┌───────────────────┐    ┌─────────────────┐
 │  Raw CSV Upload │───▶│  PII Detector     │───▶│   Metadata      │
@@ -48,6 +52,8 @@ pii-project-harsha/
 └── detokenized/            # CSV files with decoded and optionally masked data
     └── customer_data_detokenized.csv
 ```
+![image](https://github.com/user-attachments/assets/65ad941c-b428-495f-8121-385b978a5ebe)
+
 
 ## Lambda Functions
 
@@ -74,6 +80,9 @@ This serverless pipeline consists of 3 core Lambda functions:
   - Configurable masking (enabled/disabled via `masking_enabled` flag)
   - Field-specific masking patterns for names, emails, and phone numbers
 - **Output**: Detokenized/masked CSV in `/detokenized` folder
+
+- ![Uploading image.png…]()
+
 
 ## How the Pipeline Works — End-to-End Flow
 
